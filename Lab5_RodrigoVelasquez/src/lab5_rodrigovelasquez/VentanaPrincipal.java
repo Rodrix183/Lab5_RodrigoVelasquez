@@ -1,5 +1,7 @@
 package lab5_rodrigovelasquez;
 
+import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 public class VentanaPrincipal extends javax.swing.JFrame {
@@ -289,28 +291,32 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         } catch (Exception e) {
         }
-        
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         //boton registro
-        
+        jd_registro.setModal(true);
+        jd_registro.pack();
+        jd_registro.setLocationRelativeTo(this);
+        jd_registro.setVisible(true);
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         //boton registrar
         String name = tf_nombreR.getText();
+        Date f = jdc_nacimiento.getDate();
         String us = tf_userR.getText();
         String pass = tf_passwordR.getText();
         String mail = tf_emailR.getText();
         if (rb1.isSelected()) {
-            
-        }else if(rb2.isSelected()){
-        
-        }else if(rb3.isSelected()){
-        
-        }else if(rb4.isSelected()){
-        
+
+        } else if (rb2.isSelected()) {
+
+        } else if (rb3.isSelected()) {
+
+        } else if (rb4.isSelected()) {
+
         }
         JOptionPane.showMessageDialog(jd_registro, "Registrado exitosamente!");
     }//GEN-LAST:event_jButton3MouseClicked
@@ -381,4 +387,5 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_passwordR;
     private javax.swing.JTextField tf_userR;
     // End of variables declaration//GEN-END:variables
+ArrayList<Empleado> lista_empleados = new ArrayList<>();
 }

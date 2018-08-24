@@ -70,14 +70,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         tf_clasificacionPelicula = new javax.swing.JTextField();
         jd_ASEO = new javax.swing.JDialog();
-        jLabel18 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jButton5 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        tf_nombreArticulo = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        cb_categoriaFunciones = new javax.swing.JComboBox<>();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jl_Limpieza = new javax.swing.JList<>();
+        jb_GuardarArt = new javax.swing.JButton();
+        jb_meterArt = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jt_Limpieza = new javax.swing.JTree();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTree3 = new javax.swing.JTree();
+        ta_Descripcion = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jb_login = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -256,7 +260,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(62, Short.MAX_VALUE))
         );
 
-        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Dulces");
         jt_Dulce.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane1.setViewportView(jt_Dulce);
 
@@ -426,59 +430,89 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel18.setText("jLabel14");
+        jLabel16.setText("Nombre");
 
-        jLabel19.setText("jLabel15");
+        jLabel17.setText("Descripcion");
 
-        jButton5.setText("-->");
+        cb_categoriaFunciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Limpieza de Pisos", "Limpieza de Vidrios", "Limpieza de Mesas" }));
 
-        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
-        jTree3.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane4.setViewportView(jTree3);
+        jl_Limpieza.setModel(new DefaultListModel());
+        jScrollPane8.setViewportView(jl_Limpieza);
+
+        jb_GuardarArt.setText("Guardar Articulo Limpieza");
+        jb_GuardarArt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_GuardarArtMouseClicked(evt);
+            }
+        });
+
+        jb_meterArt.setText("---->");
+        jb_meterArt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_meterArtMouseClicked(evt);
+            }
+        });
+
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Articulos");
+        jt_Limpieza.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane3.setViewportView(jt_Limpieza);
+
+        ta_Descripcion.setColumns(20);
+        ta_Descripcion.setRows(5);
+        jScrollPane4.setViewportView(ta_Descripcion);
 
         javax.swing.GroupLayout jd_ASEOLayout = new javax.swing.GroupLayout(jd_ASEO.getContentPane());
         jd_ASEO.getContentPane().setLayout(jd_ASEOLayout);
         jd_ASEOLayout.setHorizontalGroup(
             jd_ASEOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_ASEOLayout.createSequentialGroup()
+            .addGroup(jd_ASEOLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jd_ASEOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jd_ASEOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane8)
+                    .addComponent(cb_categoriaFunciones, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17)
+                    .addComponent(tf_nombreArticulo)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jd_ASEOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jd_ASEOLayout.createSequentialGroup()
-                        .addGroup(jd_ASEOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton5)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel19))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_ASEOLayout.createSequentialGroup()
-                        .addGroup(jd_ASEOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField5))
-                        .addGap(35, 35, 35)))
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jb_GuardarArt))
+                    .addGroup(jd_ASEOLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jb_meterArt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
         jd_ASEOLayout.setVerticalGroup(
             jd_ASEOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_ASEOLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jd_ASEOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_nombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_GuardarArt))
+                .addGap(18, 18, 18)
                 .addGroup(jd_ASEOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_ASEOLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
                     .addGroup(jd_ASEOLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel18)
+                        .addComponent(jLabel17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cb_categoriaFunciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel19)
-                        .addGap(5, 5, 5)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton5)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jd_ASEOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_ASEOLayout.createSequentialGroup()
+                                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_ASEOLayout.createSequentialGroup()
+                                .addComponent(jb_meterArt)
+                                .addGap(170, 170, 170))))))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -666,10 +700,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jb_GuardarDulce1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_GuardarDulce1MouseClicked
         //guardar pelicula
-         String cat_peli = cb_categoriaPeliculas.getSelectedItem().toString();
+        String cat_peli = cb_categoriaPeliculas.getSelectedItem().toString();
         DefaultListModel modeloLista = (DefaultListModel) jl_Peliculas.getModel();
         modeloLista.addElement(new Pelicula(tf_nombrePelicula.getText(), tf_duracionPelicula.getText(), tf_clasificacionPelicula.getText(), cat_peli));
-        
+
     }//GEN-LAST:event_jb_GuardarDulce1MouseClicked
 
     private void jb_meterPeliculaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_meterPeliculaMouseClicked
@@ -702,6 +736,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jb_meterPeliculaMouseClicked
+
+    private void jb_GuardarArtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_GuardarArtMouseClicked
+        // guardar articulo
+        String cat_funcion = cb_categoriaFunciones.getSelectedItem().toString();
+        DefaultListModel modeloLista = (DefaultListModel) jl_Limpieza.getModel();
+        modeloLista.addElement(new Funcion(tf_nombreArticulo.getText(), ta_Descripcion.getText(), cat_funcion));
+    }//GEN-LAST:event_jb_GuardarArtMouseClicked
+
+    private void jb_meterArtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_meterArtMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_meterArtMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -738,11 +783,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cb_categoriaDulces;
+    private javax.swing.JComboBox<String> cb_categoriaFunciones;
     private javax.swing.JComboBox<String> cb_categoriaPeliculas;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -750,8 +794,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -765,16 +809,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTree jTree3;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JButton jb_GuardarArt;
     private javax.swing.JButton jb_GuardarDulce;
     private javax.swing.JButton jb_GuardarDulce1;
     private javax.swing.JButton jb_login;
+    private javax.swing.JButton jb_meterArt;
     private javax.swing.JButton jb_meterDulce;
     private javax.swing.JButton jb_meterPelicula;
     private javax.swing.JDialog jd_ASEO;
@@ -784,8 +829,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_registro;
     private com.toedter.calendar.JDateChooser jdc_nacimiento;
     private javax.swing.JList<String> jl_Dulces;
+    private javax.swing.JList<String> jl_Limpieza;
     private javax.swing.JList<String> jl_Peliculas;
     private javax.swing.JTree jt_Dulce;
+    private javax.swing.JTree jt_Limpieza;
     private javax.swing.JTree jt_Pelicula;
     private javax.swing.JTree jt_cine1;
     private javax.swing.JPasswordField pf_loginPassword;
@@ -794,10 +841,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JRadioButton rb2;
     private javax.swing.JRadioButton rb3;
     private javax.swing.JRadioButton rb4;
+    private javax.swing.JTextArea ta_Descripcion;
     private javax.swing.JTextField tf_clasificacionPelicula;
     private javax.swing.JTextField tf_duracionPelicula;
     private javax.swing.JTextField tf_emailR;
     private javax.swing.JTextField tf_loginUser;
+    private javax.swing.JTextField tf_nombreArticulo;
     private javax.swing.JTextField tf_nombreDulce;
     private javax.swing.JTextField tf_nombrePelicula;
     private javax.swing.JTextField tf_nombreR;

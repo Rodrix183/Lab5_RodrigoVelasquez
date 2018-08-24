@@ -1,9 +1,10 @@
 package lab5_rodrigovelasquez;
 
 class Funcion {
-private String nombre;
-private String descripcion;
-private String funcion;
+
+    private String nombre;
+    private String descripcion;
+    private String funcion;
 
     public Funcion() {
     }
@@ -42,5 +43,5 @@ private String funcion;
     public String toString() {
         return nombre;
     }
-    
+
 }

@@ -25,7 +25,7 @@ public class EmpleadoBoleteria extends Empleado {
 
     @Override
     public String toString() {
-        return "EmpleadoBoleteria{" + "lista_peliculas=" + lista_peliculas + '}';
+        return "Lista Peliculas: " + lista_peliculas;
     }
 
     

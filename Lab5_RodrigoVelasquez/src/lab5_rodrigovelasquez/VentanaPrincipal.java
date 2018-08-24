@@ -595,8 +595,33 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_GuardarDulceMouseClicked
 
     private void jb_meterDulceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_meterDulceMouseClicked
-        DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Dulce.getModel();
-        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+        if (jl_Dulces.getSelectedIndex() >= 0) {
+            DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Dulce.getModel();
+            DefaultListModel modeloLista = (DefaultListModel) jl_Dulces.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+            String nombre = ((Dulce) modeloLista.get(jl_Dulces.getSelectedIndex())).getNombre();
+            String sabor = ((Dulce) modeloLista.get(jl_Dulces.getSelectedIndex())).getSabor();
+            String categoria = ((Dulce) modeloLista.get(jl_Dulces.getSelectedIndex())).getCategoria();
+            int centinela = -1;
+            for (int i = 0; i < raiz.getChildCount(); i++) {
+                if (raiz.getChildAt(i).toString().equals(categoria)) {
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Dulce(nombre, sabor, categoria));
+                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+                    centinela = 1;
+                }
+            }
+
+            if (centinela == -1) {
+                DefaultMutableTreeNode n = new DefaultMutableTreeNode(categoria);
+                DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Dulce(nombre, sabor, categoria));
+                n.add(p);
+                raiz.add(n);
+
+            }
+            modeloArbol.reload();
+        }
+
+
     }//GEN-LAST:event_jb_meterDulceMouseClicked
 
     public static void main(String args[]) {
@@ -703,7 +728,6 @@ ArrayList<Empleado> lista_empleados = new ArrayList<>();
     ArrayList<Dulce> lista_dulces = new ArrayList<>();
 
     Administrador administrador_p;
-    DefaultMutableTreeNode nodo_seleccionado;
-    
-    
+    DefaultMutableTreeNode nodo_seleccionado, dulce_seleccionado;
+
 }

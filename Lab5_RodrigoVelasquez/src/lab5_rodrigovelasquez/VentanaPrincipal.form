@@ -812,15 +812,13 @@
             <Property name="text" type="java.lang.String" value="Modificar"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmi_modificarDulceActionPerformed"/>
+          </Events>
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="jmi_eliminarDulce">
           <Properties>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
-          </Properties>
-        </MenuItem>
-        <MenuItem class="javax.swing.JMenuItem" name="jmi_listarDulce">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jMenuItem4"/>
           </Properties>
         </MenuItem>
       </SubComponents>
@@ -835,20 +833,21 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmi_AddBoletoActionPerformed"/>
+          </Events>
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="jmi_modificarPeli">
           <Properties>
             <Property name="text" type="java.lang.String" value="Modificar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmi_modificarPeliActionPerformed"/>
+          </Events>
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="jmi_eliminarPeli">
           <Properties>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
-          </Properties>
-        </MenuItem>
-        <MenuItem class="javax.swing.JMenuItem" name="jmi_listarPeli">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jMenuItem8"/>
           </Properties>
         </MenuItem>
       </SubComponents>
@@ -863,20 +862,21 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmi_AddArticuloActionPerformed"/>
+          </Events>
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="jmi_modificarArticulo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Modificar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmi_modificarArticuloActionPerformed"/>
+          </Events>
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="jmi_eliminarArticulo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
-          </Properties>
-        </MenuItem>
-        <MenuItem class="javax.swing.JMenuItem" name="jmi_listarArt">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jMenuItem12"/>
           </Properties>
         </MenuItem>
       </SubComponents>

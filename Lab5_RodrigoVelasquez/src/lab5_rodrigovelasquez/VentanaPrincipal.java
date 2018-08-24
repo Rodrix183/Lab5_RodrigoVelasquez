@@ -86,17 +86,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jmi_AddDulce = new javax.swing.JMenuItem();
         jmi_modificarDulce = new javax.swing.JMenuItem();
         jmi_eliminarDulce = new javax.swing.JMenuItem();
-        jmi_listarDulce = new javax.swing.JMenuItem();
         pp_Boleto = new javax.swing.JPopupMenu();
         jmi_AddBoleto = new javax.swing.JMenuItem();
         jmi_modificarPeli = new javax.swing.JMenuItem();
         jmi_eliminarPeli = new javax.swing.JMenuItem();
-        jmi_listarPeli = new javax.swing.JMenuItem();
         pp_limpio = new javax.swing.JPopupMenu();
         jmi_AddArticulo = new javax.swing.JMenuItem();
         jmi_modificarArticulo = new javax.swing.JMenuItem();
         jmi_eliminarArticulo = new javax.swing.JMenuItem();
-        jmi_listarArt = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jb_login = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -555,37 +552,53 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jmi_modificarDulce.setText("Modificar");
         jmi_modificarDulce.setToolTipText("");
+        jmi_modificarDulce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_modificarDulceActionPerformed(evt);
+            }
+        });
         pp_DULCE.add(jmi_modificarDulce);
 
         jmi_eliminarDulce.setText("Eliminar");
         pp_DULCE.add(jmi_eliminarDulce);
 
-        jmi_listarDulce.setText("jMenuItem4");
-        pp_DULCE.add(jmi_listarDulce);
-
         jmi_AddBoleto.setText("Agregar");
+        jmi_AddBoleto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_AddBoletoActionPerformed(evt);
+            }
+        });
         pp_Boleto.add(jmi_AddBoleto);
 
         jmi_modificarPeli.setText("Modificar");
+        jmi_modificarPeli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_modificarPeliActionPerformed(evt);
+            }
+        });
         pp_Boleto.add(jmi_modificarPeli);
 
         jmi_eliminarPeli.setText("Eliminar");
         pp_Boleto.add(jmi_eliminarPeli);
 
-        jmi_listarPeli.setText("jMenuItem8");
-        pp_Boleto.add(jmi_listarPeli);
-
         jmi_AddArticulo.setText("Agregar");
+        jmi_AddArticulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_AddArticuloActionPerformed(evt);
+            }
+        });
         pp_limpio.add(jmi_AddArticulo);
 
         jmi_modificarArticulo.setText("Modificar");
+        jmi_modificarArticulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_modificarArticuloActionPerformed(evt);
+            }
+        });
         pp_limpio.add(jmi_modificarArticulo);
 
         jmi_eliminarArticulo.setText("Eliminar");
         pp_limpio.add(jmi_eliminarArticulo);
-
-        jmi_listarArt.setText("jMenuItem12");
-        pp_limpio.add(jmi_listarArt);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -853,27 +866,32 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jmi_AddDulceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_AddDulceActionPerformed
         String nombre = JOptionPane.showInputDialog("Nombre: ");
-        String sabor = JOptionPane.showInputDialog("Nombre: ");
+        String sabor = JOptionPane.showInputDialog("Sabor: ");
         String cat_dulce = "";
         int categoria = Integer.parseInt(JOptionPane.showInputDialog("1. Chocolates\n"
                 + "2. Gomitas\n"
                 + "3. Paletas\n"
                 + "4. Chicles"));
-        switch(categoria){
+        switch (categoria) {
             case 1:
                 cat_dulce = "Chocolates";
                 break;
-            case 2:cat_dulce = "Gomitas";
+            case 2:
+                cat_dulce = "Gomitas";
                 break;
-            case 3:cat_dulce = "Paletas";
+            case 3:
+                cat_dulce = "Paletas";
                 break;
-            case 4:cat_dulce ="Chicles";
+            case 4:
+                cat_dulce = "Chicles";
                 break;
+            default:
+                JOptionPane.showMessageDialog(null, "No hay!");
         }
-        
+
         DefaultListModel modeloLista = (DefaultListModel) jl_Dulces.getModel();
         modeloLista.addElement(new Dulce(tf_nombreDulce.getText(), tf_saborDulce.getText(), cat_dulce));
-        
+
     }//GEN-LAST:event_jmi_AddDulceActionPerformed
 
     private void jt_PeliculaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_PeliculaMouseClicked
@@ -887,6 +905,101 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             pp_limpio.show(evt.getComponent(), evt.getX(), evt.getY());
         }
     }//GEN-LAST:event_jt_LimpiezaMouseClicked
+
+    private void jmi_AddBoletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_AddBoletoActionPerformed
+        // agregar boleto
+        String nombre = JOptionPane.showInputDialog("Nombre: ");
+        String sabor = JOptionPane.showInputDialog("Sabor: ");
+        String cat_dulce = "";
+        int categoria = Integer.parseInt(JOptionPane.showInputDialog("1. Chocolates\n"
+                + "2. Gomitas\n"
+                + "3. Paletas\n"
+                + "4. Chicles"));
+        switch (categoria) {
+            case 1:
+                cat_dulce = "Chocolates";
+                break;
+            case 2:
+                cat_dulce = "Gomitas";
+                break;
+            case 3:
+                cat_dulce = "Paletas";
+                break;
+            case 4:
+                cat_dulce = "Chicles";
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "No hay!");
+        }
+    }//GEN-LAST:event_jmi_AddBoletoActionPerformed
+
+    private void jmi_AddArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_AddArticuloActionPerformed
+        // add articulo
+        String nombre = JOptionPane.showInputDialog("Nombre: ");
+        String descripcion = JOptionPane.showInputDialog("Sabor: ");
+        String cat_func = "";
+        int categoria = Integer.parseInt(JOptionPane.showInputDialog("1. Limpieza de Pisos\n"
+                + "2. Limpieza de Vidrios\n"
+                + "3. Limpieza de Mesas"));
+        switch (categoria) {
+            case 1:
+                cat_func = "Limpieza de Pisos";
+                break;
+            case 2:
+                cat_func = "Limpieza de Vidrios";
+                break;
+            case 3:
+                cat_func = "Limpieza de Mesas";
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "No hay!");
+        }
+
+        DefaultListModel modeloLista = (DefaultListModel) jl_Limpieza.getModel();
+        modeloLista.addElement(new Funcion(nombre, descripcion, cat_func));
+    }//GEN-LAST:event_jmi_AddArticuloActionPerformed
+
+    private void jmi_modificarDulceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modificarDulceActionPerformed
+        int op = Integer.parseInt(JOptionPane.showInputDialog("Que desea Modificar?"));
+        switch (op) {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "No Valido");
+        }
+    }//GEN-LAST:event_jmi_modificarDulceActionPerformed
+
+    private void jmi_modificarPeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modificarPeliActionPerformed
+        int op = Integer.parseInt(JOptionPane.showInputDialog("Que desea Modificar?"));
+        switch (op) {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "No Valido");
+        }
+    }//GEN-LAST:event_jmi_modificarPeliActionPerformed
+
+    private void jmi_modificarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modificarArticuloActionPerformed
+        int op = Integer.parseInt(JOptionPane.showInputDialog("Que desea Modificar?"));
+        switch (op) {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "No Valido");
+        }
+    }//GEN-LAST:event_jmi_modificarArticuloActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -977,9 +1090,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmi_eliminarArticulo;
     private javax.swing.JMenuItem jmi_eliminarDulce;
     private javax.swing.JMenuItem jmi_eliminarPeli;
-    private javax.swing.JMenuItem jmi_listarArt;
-    private javax.swing.JMenuItem jmi_listarDulce;
-    private javax.swing.JMenuItem jmi_listarPeli;
     private javax.swing.JMenuItem jmi_modificarArticulo;
     private javax.swing.JMenuItem jmi_modificarDulce;
     private javax.swing.JMenuItem jmi_modificarPeli;

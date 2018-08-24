@@ -1,5 +1,7 @@
 package lab5_rodrigovelasquez;
 
+import javax.swing.JOptionPane;
+
 public class VentanaPrincipal extends javax.swing.JFrame {
 
     public VentanaPrincipal() {
@@ -297,7 +299,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         //boton registrar
+        String name = tf_nombreR.getText();
+        String us = tf_userR.getText();
+        String pass = tf_passwordR.getText();
+        String mail = tf_emailR.getText();
+        if (rb1.isSelected()) {
+            
+        }else if(rb2.isSelected()){
         
+        }else if(rb3.isSelected()){
+        
+        }else if(rb4.isSelected()){
+        
+        }
+        JOptionPane.showMessageDialog(jd_registro, "Registrado exitosamente!");
     }//GEN-LAST:event_jButton3MouseClicked
 
     public static void main(String args[]) {

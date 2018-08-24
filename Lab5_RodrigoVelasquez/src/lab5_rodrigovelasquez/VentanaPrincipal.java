@@ -852,18 +852,39 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jt_DulceMouseClicked
 
     private void jmi_AddDulceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_AddDulceActionPerformed
+        String nombre = JOptionPane.showInputDialog("Nombre: ");
+        String sabor = JOptionPane.showInputDialog("Nombre: ");
+        String cat_dulce = "";
+        int categoria = Integer.parseInt(JOptionPane.showInputDialog("1. Chocolates\n"
+                + "2. Gomitas\n"
+                + "3. Paletas\n"
+                + "4. Chicles"));
+        switch(categoria){
+            case 1:
+                cat_dulce = "Chocolates";
+                break;
+            case 2:cat_dulce = "Gomitas";
+                break;
+            case 3:cat_dulce = "Paletas";
+                break;
+            case 4:cat_dulce ="Chicles";
+                break;
+        }
+        
+        DefaultListModel modeloLista = (DefaultListModel) jl_Dulces.getModel();
+        modeloLista.addElement(new Dulce(tf_nombreDulce.getText(), tf_saborDulce.getText(), cat_dulce));
         
     }//GEN-LAST:event_jmi_AddDulceActionPerformed
 
     private void jt_PeliculaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_PeliculaMouseClicked
-         if (evt.isMetaDown()) {
+        if (evt.isMetaDown()) {
             pp_Boleto.show(evt.getComponent(), evt.getX(), evt.getY());
         }
     }//GEN-LAST:event_jt_PeliculaMouseClicked
 
     private void jt_LimpiezaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_LimpiezaMouseClicked
-          if (evt.isMetaDown()) {
-           pp_limpio.show(evt.getComponent(), evt.getX(), evt.getY());
+        if (evt.isMetaDown()) {
+            pp_limpio.show(evt.getComponent(), evt.getX(), evt.getY());
         }
     }//GEN-LAST:event_jt_LimpiezaMouseClicked
 

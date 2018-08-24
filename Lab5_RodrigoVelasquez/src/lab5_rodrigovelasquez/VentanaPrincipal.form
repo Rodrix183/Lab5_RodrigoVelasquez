@@ -387,7 +387,12 @@
         <Component class="javax.swing.JComboBox" name="cb_categoriaDulces">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
+              <StringArray count="4">
+                <StringItem index="0" value="Chocolates"/>
+                <StringItem index="1" value="Gomitas"/>
+                <StringItem index="2" value="Paletas"/>
+                <StringItem index="3" value="Chicles"/>
+              </StringArray>
             </Property>
           </Properties>
           <AuxValues>
@@ -398,6 +403,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="--&gt;"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_meterDulceMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="tf_nombreDulce">
         </Component>
@@ -420,7 +428,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JList" name="jList1">
+            <Component class="javax.swing.JList" name="jl_Dulces">
               <Properties>
                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="new DefaultListModel()" type="code"/>

@@ -2,7 +2,10 @@ package lab5_rodrigovelasquez;
 
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 public class VentanaPrincipal extends javax.swing.JFrame {
 
@@ -50,7 +53,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jl_Dulces = new javax.swing.JList<>();
         jb_GuardarDulce = new javax.swing.JButton();
         jd_BOLETO = new javax.swing.JDialog();
         jLabel16 = new javax.swing.JLabel();
@@ -252,14 +255,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jt_Dulce.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane1.setViewportView(jt_Dulce);
 
+        cb_categoriaDulces.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chocolates", "Gomitas", "Paletas", "Chicles" }));
+
         jb_meterDulce.setText("-->");
+        jb_meterDulce.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_meterDulceMouseClicked(evt);
+            }
+        });
 
         jLabel14.setText("Nombre");
 
         jLabel15.setText("Sabor");
 
-        jList1.setModel(new DefaultListModel());
-        jScrollPane5.setViewportView(jList1);
+        jl_Dulces.setModel(new DefaultListModel());
+        jScrollPane5.setViewportView(jl_Dulces);
 
         jb_GuardarDulce.setText("Guardar Dulce");
         jb_GuardarDulce.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -507,10 +517,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         try {
             for (Empleado emp : lista_empleados) {
                 if (tf_loginUser.getText().equals(emp.getUser()) && pf_loginPassword.getText().equals(emp.getPassword())) {
-                    jd_Sistema.setModal(true);
-                    jd_Sistema.pack();
-                    jd_Sistema.setLocationRelativeTo(this);
-                    jd_Sistema.setVisible(true);
+                    if (emp.getPuesto() == "dulces") {
+                        jd_DULCE.setModal(true);
+                        jd_DULCE.pack();
+                        jd_DULCE.setLocationRelativeTo(this);
+                        jd_DULCE.setVisible(true);
+                    } else if (emp.getPuesto() == "boletos") {
+                        jd_BOLETO.setModal(true);
+                        jd_BOLETO.pack();
+                        jd_BOLETO.setLocationRelativeTo(this);
+                        jd_BOLETO.setVisible(true);
+                    } else if (emp.getPuesto() == "aseo") {
+                        jd_ASEO.setModal(true);
+                        jd_ASEO.pack();
+                        jd_ASEO.setLocationRelativeTo(this);
+                        jd_ASEO.setVisible(true);
+                    }
                 }
             }
         } catch (Exception e) {
@@ -559,13 +581,23 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jt_cine1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_cine1MouseClicked
         if (evt.isMetaDown()) {
-            
+
         }
     }//GEN-LAST:event_jt_cine1MouseClicked
 
     private void jb_GuardarDulceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_GuardarDulceMouseClicked
-        // TODO add your handling code here:
+        // guardar dulces
+        String cat_dulce = cb_categoriaDulces.getSelectedItem().toString();
+        DefaultListModel modeloLista = (DefaultListModel) jl_Dulces.getModel();
+        modeloLista.addElement(new Dulce(tf_nombreDulce.getText(), tf_saborDulce.getText(), cat_dulce));
+
+
     }//GEN-LAST:event_jb_GuardarDulceMouseClicked
+
+    private void jb_meterDulceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_meterDulceMouseClicked
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Dulce.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+    }//GEN-LAST:event_jb_meterDulceMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -627,7 +659,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -648,6 +679,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_Sistema;
     private javax.swing.JDialog jd_registro;
     private com.toedter.calendar.JDateChooser jdc_nacimiento;
+    private javax.swing.JList<String> jl_Dulces;
     private javax.swing.JTree jt_Dulce;
     private javax.swing.JTree jt_cine1;
     private javax.swing.JPasswordField pf_loginPassword;
@@ -668,5 +700,10 @@ ArrayList<Empleado> lista_empleados = new ArrayList<>();
     ArrayList<EmpleadoDulceria> lista_dulceros = new ArrayList<>();
     ArrayList<EmpleadoBoleteria> lista_boleteros = new ArrayList<>();
     ArrayList<EmpleadoAseo> lista_aseadores = new ArrayList<>();
+    ArrayList<Dulce> lista_dulces = new ArrayList<>();
+
     Administrador administrador_p;
+    DefaultMutableTreeNode nodo_seleccionado;
+    
+    
 }

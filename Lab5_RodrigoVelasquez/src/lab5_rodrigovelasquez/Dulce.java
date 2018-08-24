@@ -8,6 +8,13 @@ class Dulce {
     public Dulce() {
     }
 
+    public Dulce(String nombre, String sabor, String categoria) {
+        this.nombre = nombre;
+        this.sabor = sabor;
+        this.categoria = categoria;
+    }
+
+    
     public String getNombre() {
         return nombre;
     }

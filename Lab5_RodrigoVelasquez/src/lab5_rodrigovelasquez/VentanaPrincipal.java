@@ -56,14 +56,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jl_Dulces = new javax.swing.JList<>();
         jb_GuardarDulce = new javax.swing.JButton();
         jd_BOLETO = new javax.swing.JDialog();
-        jLabel16 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton4 = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTree2 = new javax.swing.JTree();
+        jLabel20 = new javax.swing.JLabel();
+        jb_GuardarDulce1 = new javax.swing.JButton();
+        tf_nombrePelicula = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        tf_duracionPelicula = new javax.swing.JTextField();
+        cb_categoriaPeliculas = new javax.swing.JComboBox<>();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jl_Peliculas = new javax.swing.JList<>();
+        jb_meterPelicula = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jt_Pelicula = new javax.swing.JTree();
+        jLabel22 = new javax.swing.JLabel();
+        tf_clasificacionPelicula = new javax.swing.JTextField();
         jd_ASEO = new javax.swing.JDialog();
         jLabel18 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
@@ -331,59 +336,94 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        jLabel16.setText("jLabel14");
+        jLabel20.setText("Nombre");
 
-        jLabel17.setText("jLabel15");
+        jb_GuardarDulce1.setText("Guardar Pelicula");
+        jb_GuardarDulce1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_GuardarDulce1MouseClicked(evt);
+            }
+        });
 
-        jButton4.setText("-->");
+        jLabel21.setText("Duracion");
 
-        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
-        jTree2.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane3.setViewportView(jTree2);
+        cb_categoriaPeliculas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Terror", "Comedia", "Romance", "Drama", "Accion", "Infantil" }));
+
+        jl_Peliculas.setModel(new DefaultListModel());
+        jScrollPane6.setViewportView(jl_Peliculas);
+
+        jb_meterPelicula.setText("-->");
+        jb_meterPelicula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_meterPeliculaMouseClicked(evt);
+            }
+        });
+
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Peliculas");
+        jt_Pelicula.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane7.setViewportView(jt_Pelicula);
+
+        jLabel22.setText("Clasificacion");
 
         javax.swing.GroupLayout jd_BOLETOLayout = new javax.swing.GroupLayout(jd_BOLETO.getContentPane());
         jd_BOLETO.getContentPane().setLayout(jd_BOLETOLayout);
         jd_BOLETOLayout.setHorizontalGroup(
             jd_BOLETOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_BOLETOLayout.createSequentialGroup()
+            .addGroup(jd_BOLETOLayout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jd_BOLETOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                    .addComponent(cb_categoriaPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel21)
+                    .addComponent(tf_nombrePelicula)
+                    .addComponent(jLabel22)
+                    .addGroup(jd_BOLETOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(tf_clasificacionPelicula, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                        .addComponent(tf_duracionPelicula, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addGroup(jd_BOLETOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_BOLETOLayout.createSequentialGroup()
-                        .addGroup(jd_BOLETOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel17))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_BOLETOLayout.createSequentialGroup()
-                        .addGroup(jd_BOLETOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3))
-                        .addGap(35, 35, 35)))
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addComponent(jb_meterPelicula)
+                        .addGap(51, 51, 51)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))
+                    .addGroup(jd_BOLETOLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jb_GuardarDulce1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jd_BOLETOLayout.setVerticalGroup(
             jd_BOLETOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_BOLETOLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jd_BOLETOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_nombrePelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_GuardarDulce1))
+                .addGap(18, 18, 18)
                 .addGroup(jd_BOLETOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_BOLETOLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jd_BOLETOLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel17)
-                        .addGap(5, 5, 5)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton4)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel21)
+                        .addGroup(jd_BOLETOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_BOLETOLayout.createSequentialGroup()
+                                .addGap(132, 132, 132)
+                                .addComponent(jb_meterPelicula)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jd_BOLETOLayout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addComponent(tf_duracionPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                                .addComponent(jLabel22)
+                                .addGap(5, 5, 5)
+                                .addComponent(tf_clasificacionPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cb_categoriaPeliculas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         jLabel18.setText("jLabel14");
@@ -624,6 +664,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jb_meterDulceMouseClicked
 
+    private void jb_GuardarDulce1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_GuardarDulce1MouseClicked
+        //guardar pelicula
+         String cat_peli = cb_categoriaPeliculas.getSelectedItem().toString();
+        DefaultListModel modeloLista = (DefaultListModel) jl_Peliculas.getModel();
+        modeloLista.addElement(new Pelicula(tf_nombrePelicula.getText(), tf_duracionPelicula.getText(), tf_clasificacionPelicula.getText(), cat_peli));
+        
+    }//GEN-LAST:event_jb_GuardarDulce1MouseClicked
+
+    private void jb_meterPeliculaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_meterPeliculaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_meterPeliculaMouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -659,11 +711,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cb_categoriaDulces;
+    private javax.swing.JComboBox<String> cb_categoriaPeliculas;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -672,11 +723,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -686,18 +738,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTree jTree2;
     private javax.swing.JTree jTree3;
     private javax.swing.JButton jb_GuardarDulce;
+    private javax.swing.JButton jb_GuardarDulce1;
     private javax.swing.JButton jb_login;
     private javax.swing.JButton jb_meterDulce;
+    private javax.swing.JButton jb_meterPelicula;
     private javax.swing.JDialog jd_ASEO;
     private javax.swing.JDialog jd_BOLETO;
     private javax.swing.JDialog jd_DULCE;
@@ -705,7 +757,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_registro;
     private com.toedter.calendar.JDateChooser jdc_nacimiento;
     private javax.swing.JList<String> jl_Dulces;
+    private javax.swing.JList<String> jl_Peliculas;
     private javax.swing.JTree jt_Dulce;
+    private javax.swing.JTree jt_Pelicula;
     private javax.swing.JTree jt_cine1;
     private javax.swing.JPasswordField pf_loginPassword;
     private javax.swing.JPopupMenu pp_CRUD;
@@ -713,9 +767,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JRadioButton rb2;
     private javax.swing.JRadioButton rb3;
     private javax.swing.JRadioButton rb4;
+    private javax.swing.JTextField tf_clasificacionPelicula;
+    private javax.swing.JTextField tf_duracionPelicula;
     private javax.swing.JTextField tf_emailR;
     private javax.swing.JTextField tf_loginUser;
     private javax.swing.JTextField tf_nombreDulce;
+    private javax.swing.JTextField tf_nombrePelicula;
     private javax.swing.JTextField tf_nombreR;
     private javax.swing.JTextField tf_passwordR;
     private javax.swing.JTextField tf_saborDulce;

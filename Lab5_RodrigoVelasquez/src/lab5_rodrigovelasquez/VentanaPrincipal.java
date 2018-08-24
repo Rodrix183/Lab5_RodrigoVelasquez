@@ -312,14 +312,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         String puesto = "";
         if (rb1.isSelected()) {
             puesto = "dulces";
+            lista_dulceros.add(new EmpleadoDulceria(name, f, us, pass, mail, puesto));
         } else if (rb2.isSelected()) {
             puesto = "boletos";
+            lista_boleteros.add(new EmpleadoBoleteria(name, f, us, pass, mail, puesto));
         } else if (rb3.isSelected()) {
             puesto = "aseo";
+            lista_aseadores.add(new EmpleadoAseo(name, f, us, pass, mail, puesto));
+        }else{
+            puesto = null;
         }
         
         if (rb4.isSelected()) {
-           
+            //el admin
+           administrador_p.setUser(us);
+           administrador_p.setPassword(pass);
         }
         lista_empleados.add(new Empleado(name, f, us, pass, mail, puesto));
         JOptionPane.showMessageDialog(jd_registro, "Registrado exitosamente!");
@@ -395,4 +402,5 @@ ArrayList<Empleado> lista_empleados = new ArrayList<>();
 ArrayList<EmpleadoDulceria> lista_dulceros = new ArrayList<>();
 ArrayList<EmpleadoBoleteria> lista_boleteros = new ArrayList<>();
 ArrayList<EmpleadoAseo> lista_aseadores = new ArrayList<>();
+Administrador administrador_p;
 }

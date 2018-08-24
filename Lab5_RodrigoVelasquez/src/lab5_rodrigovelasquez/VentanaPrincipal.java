@@ -859,9 +859,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_meterArtMouseClicked
 
     private void jt_DulceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_DulceMouseClicked
+        row1 = jt_Dulce.getClosestRowForLocation(evt.getX(), evt.getY());
+        jt_Dulce.setSelectionRow(row1);
+        objeto1 = jt_Dulce.getSelectionPath().getLastPathComponent();
         if (evt.isMetaDown()) {
             pp_DULCE.show(evt.getComponent(), evt.getX(), evt.getY());
         }
+
     }//GEN-LAST:event_jt_DulceMouseClicked
 
     private void jmi_AddDulceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_AddDulceActionPerformed
@@ -890,17 +894,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
 
         DefaultListModel modeloLista = (DefaultListModel) jl_Dulces.getModel();
-        modeloLista.addElement(new Dulce(tf_nombreDulce.getText(), tf_saborDulce.getText(), cat_dulce));
-
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Dulce.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+        DefaultMutableTreeNode n = new DefaultMutableTreeNode(new Dulce(nombre, sabor, cat_dulce));
+        raiz.add(n);
+        modeloArbol.reload();
     }//GEN-LAST:event_jmi_AddDulceActionPerformed
 
     private void jt_PeliculaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_PeliculaMouseClicked
+        row2 = jt_Pelicula.getClosestRowForLocation(evt.getX(), evt.getY());
+        jt_Pelicula.setSelectionRow(row2);
+        objeto2 = jt_Pelicula.getSelectionPath().getLastPathComponent();
         if (evt.isMetaDown()) {
             pp_Boleto.show(evt.getComponent(), evt.getX(), evt.getY());
         }
     }//GEN-LAST:event_jt_PeliculaMouseClicked
 
     private void jt_LimpiezaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_LimpiezaMouseClicked
+        row3 = jt_Limpieza.getClosestRowForLocation(evt.getX(), evt.getY());
+        jt_Limpieza.setSelectionRow(row3);
+        objeto3 = jt_Limpieza.getSelectionPath().getLastPathComponent();
         if (evt.isMetaDown()) {
             pp_limpio.show(evt.getComponent(), evt.getX(), evt.getY());
         }
@@ -909,28 +922,45 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void jmi_AddBoletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_AddBoletoActionPerformed
         // agregar boleto
         String nombre = JOptionPane.showInputDialog("Nombre: ");
-        String sabor = JOptionPane.showInputDialog("Sabor: ");
-        String cat_dulce = "";
-        int categoria = Integer.parseInt(JOptionPane.showInputDialog("1. Chocolates\n"
-                + "2. Gomitas\n"
-                + "3. Paletas\n"
-                + "4. Chicles"));
+        String duracion = JOptionPane.showInputDialog("Duracion: ");
+        String clasificacion = JOptionPane.showInputDialog("Clasificacion: ");
+        String cat_peli = "";
+        int categoria = Integer.parseInt(JOptionPane.showInputDialog("Categoria: \n"
+                + "1. Terror\n"
+                + "2. Comedia\n"
+                + "3. Romance\n"
+                + "4. Drama\n"
+                + "5. Accion\n"
+                + "6. Infantil"));
         switch (categoria) {
             case 1:
-                cat_dulce = "Chocolates";
+                cat_peli = "Comedia";
                 break;
             case 2:
-                cat_dulce = "Gomitas";
+                cat_peli = "Romance";
                 break;
             case 3:
-                cat_dulce = "Paletas";
+                cat_peli = "Drama";
                 break;
             case 4:
-                cat_dulce = "Chicles";
+                cat_peli = "Accion";
+                break;
+            case 5:
+                cat_peli = "Infantil";
+                break;
+            case 6:
+                cat_peli = "Terror";
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "No hay!");
         }
+        DefaultListModel modeloLista = (DefaultListModel) jl_Peliculas.getModel();
+
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Pelicula.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+        DefaultMutableTreeNode n = new DefaultMutableTreeNode(new Pelicula(nombre, duracion, clasificacion, cat_peli));
+        raiz.add(n);
+        modeloArbol.reload();
     }//GEN-LAST:event_jmi_AddBoletoActionPerformed
 
     private void jmi_AddArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_AddArticuloActionPerformed
@@ -956,49 +986,174 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
 
         DefaultListModel modeloLista = (DefaultListModel) jl_Limpieza.getModel();
-        modeloLista.addElement(new Funcion(nombre, descripcion, cat_func));
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Limpieza.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+        DefaultMutableTreeNode n = new DefaultMutableTreeNode(new Funcion(nombre, descripcion, cat_func));
+        raiz.add(n);
+        modeloArbol.reload();
     }//GEN-LAST:event_jmi_AddArticuloActionPerformed
 
     private void jmi_modificarDulceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modificarDulceActionPerformed
-        int op = Integer.parseInt(JOptionPane.showInputDialog("Que desea Modificar?"));
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Dulce.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+        int pos1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese nodo de categoria "));
+        int pos2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese dulce"));
+        String categoria = "";
+        int op = Integer.parseInt(JOptionPane.showInputDialog("1) Nombre\n"
+                + "2) Sabor\n"
+                + "3) Categoria\n"
+                + "Que desea Modificar"));
         switch (op) {
             case 1:
+                String nombre = JOptionPane.showInputDialog("Nombre ");
+                dulce_seleccionado = ((Dulce)((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                dulce_seleccionado.setNombre(nombre);
                 break;
             case 2:
+                String sabor = JOptionPane.showInputDialog("Sabor ");
+                dulce_seleccionado = ((Dulce)((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                dulce_seleccionado.setSabor(sabor);
                 break;
             case 3:
+                int cat = Integer.parseInt(JOptionPane.showInputDialog("1. Chocolate\n"
+                        + "2. Gomitas\n"
+                        + "3. Paletas\n"
+                        + "4. Chicles\n"
+                        + "Categoria"));
+                switch (cat) {
+                    case 1:
+                        categoria = "Chocolates";
+                        break;
+                    case 2:
+                        categoria = "Gomitas";
+                        break;
+                    case 3:
+                        categoria = "Paletas";
+                        break;
+                    case 4:
+                        categoria = "Chicles";
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "No hay!");
+                }
+                dulce_seleccionado = ((Dulce)((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                dulce_seleccionado.setCategoria(categoria);
                 break;
-            default:
-                JOptionPane.showMessageDialog(null, "No Valido");
         }
+        modeloArbol.reload();
+
     }//GEN-LAST:event_jmi_modificarDulceActionPerformed
 
     private void jmi_modificarPeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modificarPeliActionPerformed
-        int op = Integer.parseInt(JOptionPane.showInputDialog("Que desea Modificar?"));
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Pelicula.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+        int pos1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese nodo de categoria "));
+        int pos2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese pelicula"));
+        String categoria = "";
+        int op = Integer.parseInt(JOptionPane.showInputDialog("1) Nombre\n"
+                + "2) Descripcion\n"
+                + "3) Clasificacion\n"
+                + "4) Categoria\n"
+                + "Que desea Modificar"));
         switch (op) {
             case 1:
+                String nombre = JOptionPane.showInputDialog("Nombre ");
+                peli_seleccionado = ((Pelicula)((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                peli_seleccionado.setNombre(nombre);
                 break;
             case 2:
+                String duracion = JOptionPane.showInputDialog("Duracion ");
+                peli_seleccionado = ((Pelicula)((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                peli_seleccionado.setDuracion(duracion);
                 break;
             case 3:
+                String clasif = JOptionPane.showInputDialog("Clasificacion ");
+                peli_seleccionado = ((Pelicula)((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                peli_seleccionado.setClasificacion(clasif);
                 break;
-            default:
-                JOptionPane.showMessageDialog(null, "No Valido");
+            case 4:
+                int cat = Integer.parseInt(JOptionPane.showInputDialog("1. Terror\n"
+                        + "2. Infantil\n"
+                        + "3. Comedia\n"
+                        + "4. Romance\n"
+                        + "5. Drama\n"
+                        + "6. Accion\n"
+                        + "Categoria"));
+                switch (cat) {
+                    case 1:
+                        categoria = "Terror";
+                        break;
+                    case 2:
+                        categoria = "Infantil";
+                        break;
+                    case 3:
+                        categoria = "Comedia";
+                        break;
+                    case 4:
+                        categoria = "Romance";
+                        break;
+                    case 5:
+                        categoria = "Drama";
+                        break;
+                    case 6:
+                        categoria = "Accion";
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "No hay!");
+                }
+                peli_seleccionado = ((Pelicula)((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                peli_seleccionado.setCategoria(categoria);
+                break;
         }
+        modeloArbol.reload();
     }//GEN-LAST:event_jmi_modificarPeliActionPerformed
 
     private void jmi_modificarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modificarArticuloActionPerformed
-        int op = Integer.parseInt(JOptionPane.showInputDialog("Que desea Modificar?"));
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Limpieza.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+        int pos1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese nodo de categoria "));
+        int pos2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese articulo de limpieza"));
+        String categoria = "";
+        int op = Integer.parseInt(JOptionPane.showInputDialog("1) Nombre\n"
+                + "2) Descripcion\n"
+                + "3) Funcion\n"
+                + "Que desea Modificar"));
         switch (op) {
             case 1:
+                String nombre = JOptionPane.showInputDialog("Nombre ");
+                //((Funcion) nodo_seleccionado.getChildAt(pos1).getChildAt(pos2)).setNombre(nombre);
+                funcion_seleccionado = ((Funcion)((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                funcion_seleccionado.setNombre(nombre);
                 break;
             case 2:
+                String Descripcion = JOptionPane.showInputDialog("Desripcion ");
+                funcion_seleccionado = ((Funcion)((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                funcion_seleccionado.setDescripcion(Descripcion);
                 break;
             case 3:
+                int cat = Integer.parseInt(JOptionPane.showInputDialog("1. Pisos\n"
+                        + "2. Vidrios\n"
+                        + "3. Mesas\n"
+                        + "Categoria"));
+                switch (cat) {
+                    case 1:
+                        categoria = "Limpieza de Pisos";
+                        break;
+                    case 2:
+                        categoria = "Limpiezade Vidrio";                      
+                        break;
+                    case 3:
+                        categoria = "Limpiezade Mesas" ;
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "No hay!");
+                }
+                funcion_seleccionado = ((Funcion)((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                funcion_seleccionado.setFuncion(categoria);
+                ((Dulce) nodo_seleccionado.getChildAt(pos1).getChildAt(pos2)).setNombre(categoria);
                 break;
-            default:
-                JOptionPane.showMessageDialog(null, "No Valido");
         }
+        modeloArbol.reload();
     }//GEN-LAST:event_jmi_modificarArticuloActionPerformed
 
     public static void main(String args[]) {
@@ -1126,6 +1281,10 @@ ArrayList<Empleado> lista_empleados = new ArrayList<>();
     ArrayList<Dulce> lista_dulces = new ArrayList<>();
 
     Administrador administrador_p;
-    DefaultMutableTreeNode nodo_seleccionado, dulce_seleccionado;
-
+    DefaultMutableTreeNode nodo_seleccionado;
+    Dulce dulce_seleccionado;
+    Funcion funcion_seleccionado;
+    Pelicula peli_seleccionado;
+    int row1, row2, row3;
+    Object objeto1, objeto2, objeto3;
 }

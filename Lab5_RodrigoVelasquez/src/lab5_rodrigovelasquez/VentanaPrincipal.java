@@ -745,7 +745,32 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_GuardarArtMouseClicked
 
     private void jb_meterArtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_meterArtMouseClicked
-        // TODO add your handling code here:
+        //meter al arbol
+        if (jl_Limpieza.getSelectedIndex() >= 0) {
+            DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Limpieza.getModel();
+            DefaultListModel modeloLista = (DefaultListModel) jl_Limpieza.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+            String nombre = ((Funcion) modeloLista.get(jl_Limpieza.getSelectedIndex())).getNombre();
+            String descrip = ((Funcion) modeloLista.get(jl_Limpieza.getSelectedIndex())).getDescripcion();
+            String func = ((Funcion) modeloLista.get(jl_Limpieza.getSelectedIndex())).getFuncion();
+            int centinela = -1;
+            for (int i = 0; i < raiz.getChildCount(); i++) {
+                if (raiz.getChildAt(i).toString().equals(func)) {
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Funcion(nombre, descrip, func));
+                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+                    centinela = 1;
+                }
+            }
+
+            if (centinela == -1) {
+                DefaultMutableTreeNode n = new DefaultMutableTreeNode(func);
+                DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Funcion(nombre, descrip, func));
+                n.add(p);
+                raiz.add(n);
+
+            }
+            modeloArbol.reload();
+        }
     }//GEN-LAST:event_jb_meterArtMouseClicked
 
     public static void main(String args[]) {

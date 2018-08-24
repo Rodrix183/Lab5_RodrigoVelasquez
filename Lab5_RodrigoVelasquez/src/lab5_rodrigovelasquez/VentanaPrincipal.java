@@ -309,15 +309,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         String us = tf_userR.getText();
         String pass = tf_passwordR.getText();
         String mail = tf_emailR.getText();
+        String puesto = "";
         if (rb1.isSelected()) {
-
+            puesto = "dulces";
         } else if (rb2.isSelected()) {
-
+            puesto = "boletos";
         } else if (rb3.isSelected()) {
-
-        } else if (rb4.isSelected()) {
-
+            puesto = "aseo";
         }
+        
+        if (rb4.isSelected()) {
+           
+        }
+        lista_empleados.add(new Empleado(name, f, us, pass, mail, puesto));
         JOptionPane.showMessageDialog(jd_registro, "Registrado exitosamente!");
     }//GEN-LAST:event_jButton3MouseClicked
 
@@ -388,4 +392,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_userR;
     // End of variables declaration//GEN-END:variables
 ArrayList<Empleado> lista_empleados = new ArrayList<>();
+ArrayList<EmpleadoDulceria> lista_dulceros = new ArrayList<>();
+ArrayList<EmpleadoBoleteria> lista_boleteros = new ArrayList<>();
+ArrayList<EmpleadoAseo> lista_aseadores = new ArrayList<>();
 }

@@ -39,12 +39,43 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jdc_nacimiento = new com.toedter.calendar.JDateChooser();
         rb4 = new javax.swing.JRadioButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
+        pp_CRUD = new javax.swing.JPopupMenu();
+        jd_DULCE = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jt_Dulce = new javax.swing.JTree();
+        cb_categoriaDulces = new javax.swing.JComboBox<>();
+        jb_meterDulce = new javax.swing.JButton();
+        tf_nombreDulce = new javax.swing.JTextField();
+        tf_saborDulce = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jb_GuardarDulce = new javax.swing.JButton();
+        jd_BOLETO = new javax.swing.JDialog();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jButton4 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTree2 = new javax.swing.JTree();
+        jd_ASEO = new javax.swing.JDialog();
+        jLabel18 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jButton5 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTree3 = new javax.swing.JTree();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jb_login = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        tf_loginUser = new javax.swing.JTextField();
+        pf_loginPassword = new javax.swing.JPasswordField();
         jLabel7 = new javax.swing.JLabel();
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -55,6 +86,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jt_cine1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Cine");
         jt_cine1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_cine1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_cine1MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jt_cine1);
 
         jButton2.setText("jButton1");
@@ -212,15 +248,198 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(62, Short.MAX_VALUE))
         );
 
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        jt_Dulce.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane1.setViewportView(jt_Dulce);
+
+        jb_meterDulce.setText("-->");
+
+        jLabel14.setText("Nombre");
+
+        jLabel15.setText("Sabor");
+
+        jList1.setModel(new DefaultListModel());
+        jScrollPane5.setViewportView(jList1);
+
+        jb_GuardarDulce.setText("Guardar Dulce");
+        jb_GuardarDulce.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_GuardarDulceMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_DULCELayout = new javax.swing.GroupLayout(jd_DULCE.getContentPane());
+        jd_DULCE.getContentPane().setLayout(jd_DULCELayout);
+        jd_DULCELayout.setHorizontalGroup(
+            jd_DULCELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_DULCELayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_DULCELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                    .addComponent(cb_categoriaDulces, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15)
+                    .addComponent(tf_saborDulce)
+                    .addComponent(tf_nombreDulce))
+                .addGroup(jd_DULCELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_DULCELayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                        .addComponent(jb_meterDulce)
+                        .addGap(51, 51, 51)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))
+                    .addGroup(jd_DULCELayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jb_GuardarDulce)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        jd_DULCELayout.setVerticalGroup(
+            jd_DULCELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_DULCELayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jd_DULCELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_nombreDulce, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_GuardarDulce))
+                .addGap(18, 18, 18)
+                .addGroup(jd_DULCELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jd_DULCELayout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addGap(5, 5, 5)
+                        .addComponent(tf_saborDulce, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)
+                        .addComponent(cb_categoriaDulces, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jd_DULCELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_DULCELayout.createSequentialGroup()
+                                .addGap(68, 68, 68)
+                                .addComponent(jb_meterDulce))
+                            .addGroup(jd_DULCELayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane5))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+
+        jLabel16.setText("jLabel14");
+
+        jLabel17.setText("jLabel15");
+
+        jButton4.setText("-->");
+
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        jTree2.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane3.setViewportView(jTree2);
+
+        javax.swing.GroupLayout jd_BOLETOLayout = new javax.swing.GroupLayout(jd_BOLETO.getContentPane());
+        jd_BOLETO.getContentPane().setLayout(jd_BOLETOLayout);
+        jd_BOLETOLayout.setHorizontalGroup(
+            jd_BOLETOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_BOLETOLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_BOLETOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_BOLETOLayout.createSequentialGroup()
+                        .addGroup(jd_BOLETOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton4)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel17))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_BOLETOLayout.createSequentialGroup()
+                        .addGroup(jd_BOLETOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField3))
+                        .addGap(35, 35, 35)))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+        );
+        jd_BOLETOLayout.setVerticalGroup(
+            jd_BOLETOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_BOLETOLayout.createSequentialGroup()
+                .addGroup(jd_BOLETOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_BOLETOLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_BOLETOLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel17)
+                        .addGap(5, 5, 5)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton4)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel18.setText("jLabel14");
+
+        jLabel19.setText("jLabel15");
+
+        jButton5.setText("-->");
+
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        jTree3.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane4.setViewportView(jTree3);
+
+        javax.swing.GroupLayout jd_ASEOLayout = new javax.swing.GroupLayout(jd_ASEO.getContentPane());
+        jd_ASEO.getContentPane().setLayout(jd_ASEOLayout);
+        jd_ASEOLayout.setHorizontalGroup(
+            jd_ASEOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_ASEOLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_ASEOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_ASEOLayout.createSequentialGroup()
+                        .addGroup(jd_ASEOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton5)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel19))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_ASEOLayout.createSequentialGroup()
+                        .addGroup(jd_ASEOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField5))
+                        .addGap(35, 35, 35)))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+        );
+        jd_ASEOLayout.setVerticalGroup(
+            jd_ASEOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ASEOLayout.createSequentialGroup()
+                .addGroup(jd_ASEOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_ASEOLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_ASEOLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel19)
+                        .addGap(5, 5, 5)
+                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)
+                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton5)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setText("CineEshta");
 
-        jButton1.setText("Login");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jb_login.setText("Login");
+        jb_login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                jb_loginMouseClicked(evt);
             }
         });
 
@@ -249,14 +468,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel6))
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)))
+                            .addComponent(tf_loginUser)
+                            .addComponent(pf_loginPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(173, 173, 173)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(150, 150, 150)
-                        .addComponent(jButton1)
+                        .addComponent(jb_login)
                         .addGap(65, 65, 65)
                         .addComponent(jLabel7)))
                 .addContainerGap(47, Short.MAX_VALUE))
@@ -269,14 +488,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_loginUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pf_loginPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(jb_login)
                     .addComponent(jLabel7))
                 .addContainerGap(101, Short.MAX_VALUE))
         );
@@ -284,15 +503,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void jb_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_loginMouseClicked
         try {
-            if (rootPaneCheckingEnabled) {
-
+            for (Empleado emp : lista_empleados) {
+                if (tf_loginUser.getText().equals(emp.getUser()) && pf_loginPassword.getText().equals(emp.getPassword())) {
+                    jd_Sistema.setModal(true);
+                    jd_Sistema.pack();
+                    jd_Sistema.setLocationRelativeTo(this);
+                    jd_Sistema.setVisible(true);
+                }
             }
         } catch (Exception e) {
         }
 
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_jb_loginMouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         //boton registro
@@ -319,18 +543,29 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         } else if (rb3.isSelected()) {
             puesto = "aseo";
             lista_aseadores.add(new EmpleadoAseo(name, f, us, pass, mail, puesto));
-        }else{
+        } else {
             puesto = null;
         }
-        
+
         if (rb4.isSelected()) {
             //el admin
-           administrador_p.setUser(us);
-           administrador_p.setPassword(pass);
+            administrador_p.setUser(us);
+            administrador_p.setPassword(pass);
         }
         lista_empleados.add(new Empleado(name, f, us, pass, mail, puesto));
         JOptionPane.showMessageDialog(jd_registro, "Registrado exitosamente!");
+        jd_registro.dispose();
     }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jt_cine1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_cine1MouseClicked
+        if (evt.isMetaDown()) {
+            
+        }
+    }//GEN-LAST:event_jt_cine1MouseClicked
+
+    private void jb_GuardarDulceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_GuardarDulceMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_GuardarDulceMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -366,14 +601,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> cb_categoriaDulces;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -382,25 +627,46 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTree jTree2;
+    private javax.swing.JTree jTree3;
+    private javax.swing.JButton jb_GuardarDulce;
+    private javax.swing.JButton jb_login;
+    private javax.swing.JButton jb_meterDulce;
+    private javax.swing.JDialog jd_ASEO;
+    private javax.swing.JDialog jd_BOLETO;
+    private javax.swing.JDialog jd_DULCE;
     private javax.swing.JDialog jd_Sistema;
     private javax.swing.JDialog jd_registro;
     private com.toedter.calendar.JDateChooser jdc_nacimiento;
+    private javax.swing.JTree jt_Dulce;
     private javax.swing.JTree jt_cine1;
+    private javax.swing.JPasswordField pf_loginPassword;
+    private javax.swing.JPopupMenu pp_CRUD;
     private javax.swing.JRadioButton rb1;
     private javax.swing.JRadioButton rb2;
     private javax.swing.JRadioButton rb3;
     private javax.swing.JRadioButton rb4;
     private javax.swing.JTextField tf_emailR;
+    private javax.swing.JTextField tf_loginUser;
+    private javax.swing.JTextField tf_nombreDulce;
     private javax.swing.JTextField tf_nombreR;
     private javax.swing.JTextField tf_passwordR;
+    private javax.swing.JTextField tf_saborDulce;
     private javax.swing.JTextField tf_userR;
     // End of variables declaration//GEN-END:variables
 ArrayList<Empleado> lista_empleados = new ArrayList<>();
-ArrayList<EmpleadoDulceria> lista_dulceros = new ArrayList<>();
-ArrayList<EmpleadoBoleteria> lista_boleteros = new ArrayList<>();
-ArrayList<EmpleadoAseo> lista_aseadores = new ArrayList<>();
-Administrador administrador_p;
+    ArrayList<EmpleadoDulceria> lista_dulceros = new ArrayList<>();
+    ArrayList<EmpleadoBoleteria> lista_boleteros = new ArrayList<>();
+    ArrayList<EmpleadoAseo> lista_aseadores = new ArrayList<>();
+    Administrador administrador_p;
 }

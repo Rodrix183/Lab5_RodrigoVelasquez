@@ -82,6 +82,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jt_Limpieza = new javax.swing.JTree();
         jScrollPane4 = new javax.swing.JScrollPane();
         ta_Descripcion = new javax.swing.JTextArea();
+        pp_DULCE = new javax.swing.JPopupMenu();
+        jmi_AddDulce = new javax.swing.JMenuItem();
+        jmi_modificarDulce = new javax.swing.JMenuItem();
+        jmi_eliminarDulce = new javax.swing.JMenuItem();
+        jmi_listarDulce = new javax.swing.JMenuItem();
+        pp_Boleto = new javax.swing.JPopupMenu();
+        jmi_AddBoleto = new javax.swing.JMenuItem();
+        jmi_modificarPeli = new javax.swing.JMenuItem();
+        jmi_eliminarPeli = new javax.swing.JMenuItem();
+        jmi_listarPeli = new javax.swing.JMenuItem();
+        pp_limpio = new javax.swing.JPopupMenu();
+        jmi_AddArticulo = new javax.swing.JMenuItem();
+        jmi_modificarArticulo = new javax.swing.JMenuItem();
+        jmi_eliminarArticulo = new javax.swing.JMenuItem();
+        jmi_listarArt = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jb_login = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -262,6 +277,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Dulces");
         jt_Dulce.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_Dulce.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_DulceMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jt_Dulce);
 
         cb_categoriaDulces.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chocolates", "Gomitas", "Paletas", "Chicles" }));
@@ -365,6 +385,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Peliculas");
         jt_Pelicula.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_Pelicula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_PeliculaMouseClicked(evt);
+            }
+        });
         jScrollPane7.setViewportView(jt_Pelicula);
 
         jLabel22.setText("Clasificacion");
@@ -455,6 +480,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Articulos");
         jt_Limpieza.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_Limpieza.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_LimpiezaMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jt_Limpieza);
 
         ta_Descripcion.setColumns(20);
@@ -514,6 +544,48 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                                 .addComponent(jb_meterArt)
                                 .addGap(170, 170, 170))))))
         );
+
+        jmi_AddDulce.setText("Agregar");
+        jmi_AddDulce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_AddDulceActionPerformed(evt);
+            }
+        });
+        pp_DULCE.add(jmi_AddDulce);
+
+        jmi_modificarDulce.setText("Modificar");
+        jmi_modificarDulce.setToolTipText("");
+        pp_DULCE.add(jmi_modificarDulce);
+
+        jmi_eliminarDulce.setText("Eliminar");
+        pp_DULCE.add(jmi_eliminarDulce);
+
+        jmi_listarDulce.setText("jMenuItem4");
+        pp_DULCE.add(jmi_listarDulce);
+
+        jmi_AddBoleto.setText("Agregar");
+        pp_Boleto.add(jmi_AddBoleto);
+
+        jmi_modificarPeli.setText("Modificar");
+        pp_Boleto.add(jmi_modificarPeli);
+
+        jmi_eliminarPeli.setText("Eliminar");
+        pp_Boleto.add(jmi_eliminarPeli);
+
+        jmi_listarPeli.setText("jMenuItem8");
+        pp_Boleto.add(jmi_listarPeli);
+
+        jmi_AddArticulo.setText("Agregar");
+        pp_limpio.add(jmi_AddArticulo);
+
+        jmi_modificarArticulo.setText("Modificar");
+        pp_limpio.add(jmi_modificarArticulo);
+
+        jmi_eliminarArticulo.setText("Eliminar");
+        pp_limpio.add(jmi_eliminarArticulo);
+
+        jmi_listarArt.setText("jMenuItem12");
+        pp_limpio.add(jmi_listarArt);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -773,6 +845,28 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jb_meterArtMouseClicked
 
+    private void jt_DulceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_DulceMouseClicked
+        if (evt.isMetaDown()) {
+            pp_DULCE.show(evt.getComponent(), evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_jt_DulceMouseClicked
+
+    private void jmi_AddDulceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_AddDulceActionPerformed
+        
+    }//GEN-LAST:event_jmi_AddDulceActionPerformed
+
+    private void jt_PeliculaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_PeliculaMouseClicked
+         if (evt.isMetaDown()) {
+            pp_Boleto.show(evt.getComponent(), evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_jt_PeliculaMouseClicked
+
+    private void jt_LimpiezaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_LimpiezaMouseClicked
+          if (evt.isMetaDown()) {
+           pp_limpio.show(evt.getComponent(), evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_jt_LimpiezaMouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -856,12 +950,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JList<String> jl_Dulces;
     private javax.swing.JList<String> jl_Limpieza;
     private javax.swing.JList<String> jl_Peliculas;
+    private javax.swing.JMenuItem jmi_AddArticulo;
+    private javax.swing.JMenuItem jmi_AddBoleto;
+    private javax.swing.JMenuItem jmi_AddDulce;
+    private javax.swing.JMenuItem jmi_eliminarArticulo;
+    private javax.swing.JMenuItem jmi_eliminarDulce;
+    private javax.swing.JMenuItem jmi_eliminarPeli;
+    private javax.swing.JMenuItem jmi_listarArt;
+    private javax.swing.JMenuItem jmi_listarDulce;
+    private javax.swing.JMenuItem jmi_listarPeli;
+    private javax.swing.JMenuItem jmi_modificarArticulo;
+    private javax.swing.JMenuItem jmi_modificarDulce;
+    private javax.swing.JMenuItem jmi_modificarPeli;
     private javax.swing.JTree jt_Dulce;
     private javax.swing.JTree jt_Limpieza;
     private javax.swing.JTree jt_Pelicula;
     private javax.swing.JTree jt_cine1;
     private javax.swing.JPasswordField pf_loginPassword;
+    private javax.swing.JPopupMenu pp_Boleto;
     private javax.swing.JPopupMenu pp_CRUD;
+    private javax.swing.JPopupMenu pp_DULCE;
+    private javax.swing.JPopupMenu pp_limpio;
     private javax.swing.JRadioButton rb1;
     private javax.swing.JRadioButton rb2;
     private javax.swing.JRadioButton rb3;

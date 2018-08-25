@@ -154,6 +154,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel4.setText("Fecha");
 
         jButton1.setText("Guardar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_SistemaLayout = new javax.swing.GroupLayout(jd_Sistema.getContentPane());
         jd_Sistema.getContentPane().setLayout(jd_SistemaLayout);
@@ -822,7 +827,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         jd_ASEO.pack();
                         jd_ASEO.setLocationRelativeTo(this);
                         jd_ASEO.setVisible(true);
-                    }else if (emp.getPuesto() == "admin") {
+                    } else if (emp.getPuesto() == "admin") {
                         jd_Sistema.setModal(true);
                         jd_Sistema.pack();
                         jd_Sistema.setLocationRelativeTo(this);
@@ -866,7 +871,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         } else {
             puesto = null;
         }
-        
+
         lista_empleados.add(new Empleado(name, f, us, pass, mail, puesto));
         JOptionPane.showMessageDialog(jd_registro, "Registrado exitosamente!");
         jd_registro.dispose();
@@ -1328,7 +1333,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jmi_agregarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_agregarPActionPerformed
         //agregar
-        
+
+        String nombre = JOptionPane.showInputDialog("Nombre: ");
+        Date fecha = new Date();
+        String usuario = JOptionPane.showInputDialog("Usuario: ");
+        String contra = JOptionPane.showInputDialog("Contrasena: ");
+        String correo = JOptionPane.showInputDialog("Correo: ");
+        String puesto = JOptionPane.showInputDialog("Puesto: ");
+        DefaultListModel modeloLista = (DefaultListModel) jl_Peliculas.getModel();
+
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Pelicula.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+        DefaultMutableTreeNode n = new DefaultMutableTreeNode(new Empleado(nombre, fecha, usuario, contra, correo, puesto));
+        raiz.add(n);
+        modeloArbol.reload();
     }//GEN-LAST:event_jmi_agregarPActionPerformed
 
     private void jmi_eliminarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarPActionPerformed
@@ -1349,7 +1367,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         int pos1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese nodo de categoria "));
         int pos2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese pelicula"));
         String categoria = "";
-        int op = Integer.parseInt(JOptionPane.showInputDialog("1) Nombre\n"               
+        int op = Integer.parseInt(JOptionPane.showInputDialog("1) Nombre\n"
                 + "2) Usuario\n"
                 + "3) Contrasena\n"
                 + "4) Correo\n"
@@ -1402,14 +1420,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmi_modificarPActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-       if (jl_Empleados.getSelectedIndex() >= 0) {
+        if (jl_Empleados.getSelectedIndex() >= 0) {
             DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Empleados.getModel();
             DefaultListModel modeloLista = (DefaultListModel) jl_Empleados.getModel();
             DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
             String nombre = ((Empleado) modeloLista.get(jl_Empleados.getSelectedIndex())).getNombre();
             Date fecha = ((Empleado) modeloLista.get(jl_Empleados.getSelectedIndex())).getFecha();
             String usuario = ((Empleado) modeloLista.get(jl_Empleados.getSelectedIndex())).getUser();
-            String contra =((Empleado) modeloLista.get(jl_Empleados.getSelectedIndex())).getPassword();
+            String contra = ((Empleado) modeloLista.get(jl_Empleados.getSelectedIndex())).getPassword();
             String correo = ((Empleado) modeloLista.get(jl_Empleados.getSelectedIndex())).getEmail();
             String puesto = ((Empleado) modeloLista.get(jl_Empleados.getSelectedIndex())).getPuesto();
             int centinela = -1;
@@ -1431,6 +1449,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             modeloArbol.reload();
         }
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        //agregar a la lista
+        String cat_dulce = cb_Puesto.getSelectedItem().toString();
+        DefaultListModel modeloLista = (DefaultListModel) jl_Empleados.getModel();
+        modeloLista.addElement(new Empleado(tf_nombreDulce.getText(), jDateChooser1.getDate(), tf_userR.getText(), tf_passwordR.getText(), tf_correoEmpleado.getText(), "Empleado"));//ppasword, mail, puesto
+    }//GEN-LAST:event_jButton1MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

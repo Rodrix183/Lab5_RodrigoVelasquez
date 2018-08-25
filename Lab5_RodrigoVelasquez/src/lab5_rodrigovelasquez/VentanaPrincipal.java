@@ -19,10 +19,23 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jd_Sistema = new javax.swing.JDialog();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jt_cine1 = new javax.swing.JTree();
+        jt_Empleados = new javax.swing.JTree();
         jButton2 = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
+        tf_nombreEmpleado = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        tf_usuarioEmpleado = new javax.swing.JTextField();
+        cb_Puesto = new javax.swing.JComboBox<>();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jl_Empleados = new javax.swing.JList<>();
+        jLabel23 = new javax.swing.JLabel();
+        tf_contraEmpleado = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        tf_correoEmpleado = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jd_registro = new javax.swing.JDialog();
         jButton3 = new javax.swing.JButton();
         tf_nombreR = new javax.swing.JTextField();
@@ -43,6 +56,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         rb4 = new javax.swing.JRadioButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
         pp_CRUD = new javax.swing.JPopupMenu();
+        jmi_agregarP = new javax.swing.JMenuItem();
+        jmi_modificarP = new javax.swing.JMenuItem();
+        jmi_eliminarP = new javax.swing.JMenuItem();
         jd_DULCE = new javax.swing.JDialog();
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_Dulce = new javax.swing.JTree();
@@ -103,51 +119,122 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel3.setText("CineEshta");
+        jLabel3.setText("Cinepolis");
 
-        jLabel4.setText("Sistema Cine");
-
-        jt_cine1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Cine");
-        jt_cine1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jt_cine1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jt_Empleados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Empleados");
+        jt_Empleados.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_Empleados.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jt_cine1MouseClicked(evt);
+                jt_EmpleadosMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(jt_cine1);
+        jScrollPane2.setViewportView(jt_Empleados);
 
         jButton2.setText("jButton1");
+
+        jLabel18.setText("Nombre");
+
+        jLabel19.setText("Usuario");
+
+        cb_Puesto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dulceria", "Boleteria", "Aseo" }));
+
+        jl_Empleados.setModel(new DefaultListModel());
+        jScrollPane9.setViewportView(jl_Empleados);
+
+        jLabel23.setText("Contrasena");
+
+        jLabel24.setText("Correo");
+
+        jLabel4.setText("Fecha");
+
+        jButton1.setText("Guardar");
 
         javax.swing.GroupLayout jd_SistemaLayout = new javax.swing.GroupLayout(jd_Sistema.getContentPane());
         jd_Sistema.getContentPane().setLayout(jd_SistemaLayout);
         jd_SistemaLayout.setHorizontalGroup(
             jd_SistemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_SistemaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton2)
-                .addGap(38, 38, 38)
                 .addGroup(jd_SistemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_SistemaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(98, 98, 98))
+                    .addGroup(jd_SistemaLayout.createSequentialGroup()
+                        .addGroup(jd_SistemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel19)
+                            .addGroup(jd_SistemaLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35)
+                                .addComponent(jButton2))
+                            .addComponent(tf_contraEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel24)
+                            .addComponent(tf_correoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_SistemaLayout.createSequentialGroup()
+                        .addGap(195, 195, 195)
+                        .addComponent(jLabel3))
+                    .addGroup(jd_SistemaLayout.createSequentialGroup()
+                        .addGroup(jd_SistemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tf_nombreEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel23)
+                            .addComponent(tf_usuarioEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(44, 44, 44)
+                        .addGroup(jd_SistemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jd_SistemaLayout.createSequentialGroup()
+                                .addComponent(cb_Puesto, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(45, 45, 45)
+                                .addComponent(jButton1))
+                            .addComponent(jLabel4))))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         jd_SistemaLayout.setVerticalGroup(
             jd_SistemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_SistemaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jd_SistemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addContainerGap(15, Short.MAX_VALUE))
+                    .addGroup(jd_SistemaLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jd_SistemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tf_nombreEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cb_Puesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1)))
+                    .addGroup(jd_SistemaLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)))
+                .addComponent(jLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jd_SistemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jd_SistemaLayout.createSequentialGroup()
+                        .addComponent(tf_usuarioEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel23))
+                    .addGroup(jd_SistemaLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)))
+                .addGroup(jd_SistemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_SistemaLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_contraEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel24)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tf_correoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jd_SistemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_SistemaLayout.createSequentialGroup()
+                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_SistemaLayout.createSequentialGroup()
+                                .addComponent(jButton2)
+                                .addGap(119, 119, 119))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_SistemaLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         jButton3.setText("Registrar");
@@ -271,6 +358,30 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(jButton3)
                 .addContainerGap(62, Short.MAX_VALUE))
         );
+
+        jmi_agregarP.setText("Agregar");
+        jmi_agregarP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_agregarPActionPerformed(evt);
+            }
+        });
+        pp_CRUD.add(jmi_agregarP);
+
+        jmi_modificarP.setText("Modificar");
+        jmi_modificarP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_modificarPActionPerformed(evt);
+            }
+        });
+        pp_CRUD.add(jmi_modificarP);
+
+        jmi_eliminarP.setText("Eliminar");
+        jmi_eliminarP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_eliminarPActionPerformed(evt);
+            }
+        });
+        pp_CRUD.add(jmi_eliminarP);
 
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Dulces");
         jt_Dulce.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
@@ -706,6 +817,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         jd_ASEO.pack();
                         jd_ASEO.setLocationRelativeTo(this);
                         jd_ASEO.setVisible(true);
+                    }else if (emp.getPuesto() == "admin") {
+                        jd_Sistema.setModal(true);
+                        jd_Sistema.pack();
+                        jd_Sistema.setLocationRelativeTo(this);
+                        jd_Sistema.setVisible(true);
                     }
                 }
             }
@@ -739,25 +855,23 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         } else if (rb3.isSelected()) {
             puesto = "aseo";
             lista_aseadores.add(new EmpleadoAseo(name, f, us, pass, mail, puesto));
+        } else if (rb4.isSelected()) {
+            puesto = "admin";
+            lista_aseadores.add(new EmpleadoAseo(name, f, us, pass, mail, puesto));
         } else {
             puesto = null;
         }
-
-        if (rb4.isSelected()) {
-            //el admin
-            administrador_p.setUser(us);
-            administrador_p.setPassword(pass);
-        }
+        
         lista_empleados.add(new Empleado(name, f, us, pass, mail, puesto));
         JOptionPane.showMessageDialog(jd_registro, "Registrado exitosamente!");
         jd_registro.dispose();
     }//GEN-LAST:event_jButton3MouseClicked
 
-    private void jt_cine1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_cine1MouseClicked
+    private void jt_EmpleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_EmpleadosMouseClicked
         if (evt.isMetaDown()) {
-
+            pp_CRUD.show(evt.getComponent(), evt.getX(), evt.getY());
         }
-    }//GEN-LAST:event_jt_cine1MouseClicked
+    }//GEN-LAST:event_jt_EmpleadosMouseClicked
 
     private void jb_GuardarDulceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_GuardarDulceMouseClicked
         // guardar dulces
@@ -1175,8 +1289,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         // eliminar dulce
         DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Dulce.getModel();
         DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
-        int pos1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese nodo de categoria "));
-        int pos2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese dulce"));
+        int pos1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese posicion categoria dulce"));
+        int pos2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese posicion dulce a eliminar"));
 
         // dulce_seleccionado = ((Dulce) ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
         DefaultMutableTreeNode m = ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2));
@@ -1188,8 +1302,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         //eliminar peli
         DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Pelicula.getModel();
         DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
-        int pos1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese nodo de categoria "));
-        int pos2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese pelicula"));
+        int pos1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese posicion de categoria "));
+        int pos2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese posicion pelicula"));
         DefaultMutableTreeNode m = ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2));
         m.removeFromParent();
         modeloArbol.reload();
@@ -1200,12 +1314,87 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         // eliminar articulo
         DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Limpieza.getModel();
         DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
-        int pos1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese nodo de categoria "));
-        int pos2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese articulo de limpieza"));
+        int pos1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese posicion de categoria "));
+        int pos2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese posicion articulo de limpieza"));
         DefaultMutableTreeNode m = ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2));
         m.removeFromParent();
         modeloArbol.reload();
     }//GEN-LAST:event_jmi_eliminarArticuloActionPerformed
+
+    private void jmi_agregarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_agregarPActionPerformed
+        //agregar
+        
+    }//GEN-LAST:event_jmi_agregarPActionPerformed
+
+    private void jmi_eliminarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarPActionPerformed
+        // eliminar
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Empleados.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+        int pos1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese posicion de puesto "));
+        int pos2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese posicion de empleado"));
+        DefaultMutableTreeNode m = ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2));
+        m.removeFromParent();
+        modeloArbol.reload();
+    }//GEN-LAST:event_jmi_eliminarPActionPerformed
+
+    private void jmi_modificarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modificarPActionPerformed
+        // modificar
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Pelicula.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+        int pos1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese nodo de categoria "));
+        int pos2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese pelicula"));
+        String categoria = "";
+        int op = Integer.parseInt(JOptionPane.showInputDialog("1) Nombre\n"               
+                + "2) Usuario\n"
+                + "3) Contrasena\n"
+                + "4) Correo\n"
+                + "5) Puesto\n"
+                + "Que desea Modificar"));
+        switch (op) {
+            case 1:
+                String nombre = JOptionPane.showInputDialog("Nombre ");
+                emp_sel = ((Empleado) ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                emp_sel.setNombre(nombre);
+                break;
+            case 2:
+                String usuario = JOptionPane.showInputDialog("Usuario ");
+                emp_sel = ((Empleado) ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                emp_sel.setUser(usuario);
+                break;
+            case 3:
+                String contra = JOptionPane.showInputDialog("Contrasena ");
+                emp_sel = ((Empleado) ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                emp_sel.setUser(contra);
+                break;
+            case 4:
+                String correo = JOptionPane.showInputDialog("Correo ");
+                emp_sel = ((Empleado) ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                emp_sel.setNombre(correo);
+                break;
+            case 5:
+                int cat = Integer.parseInt(JOptionPane.showInputDialog("1. Dulceria\n"
+                        + "2. Boleteria\n"
+                        + "3. Aseo\n"
+                        + "Categoria"));
+                switch (cat) {
+                    case 1:
+                        categoria = "dulces";
+                        break;
+                    case 2:
+                        categoria = "boletos";
+                        break;
+                    case 3:
+                        categoria = "aseo";
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "No hay!");
+                }
+                emp_sel = ((Empleado) ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                emp_sel.setPuesto(categoria);
+                break;
+        }
+        modeloArbol.reload();
+    }//GEN-LAST:event_jmi_modificarPActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1241,11 +1430,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> cb_Puesto;
     private javax.swing.JComboBox<String> cb_categoriaDulces;
     private javax.swing.JComboBox<String> cb_categoriaFunciones;
     private javax.swing.JComboBox<String> cb_categoriaPeliculas;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1255,10 +1447,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1274,6 +1470,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JButton jb_GuardarArt;
     private javax.swing.JButton jb_GuardarDulce;
     private javax.swing.JButton jb_GuardarDulce1;
@@ -1288,21 +1485,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_registro;
     private com.toedter.calendar.JDateChooser jdc_nacimiento;
     private javax.swing.JList<String> jl_Dulces;
+    private javax.swing.JList<String> jl_Empleados;
     private javax.swing.JList<String> jl_Limpieza;
     private javax.swing.JList<String> jl_Peliculas;
     private javax.swing.JMenuItem jmi_AddArticulo;
     private javax.swing.JMenuItem jmi_AddBoleto;
     private javax.swing.JMenuItem jmi_AddDulce;
+    private javax.swing.JMenuItem jmi_agregarP;
     private javax.swing.JMenuItem jmi_eliminarArticulo;
     private javax.swing.JMenuItem jmi_eliminarDulce;
+    private javax.swing.JMenuItem jmi_eliminarP;
     private javax.swing.JMenuItem jmi_eliminarPeli;
     private javax.swing.JMenuItem jmi_modificarArticulo;
     private javax.swing.JMenuItem jmi_modificarDulce;
+    private javax.swing.JMenuItem jmi_modificarP;
     private javax.swing.JMenuItem jmi_modificarPeli;
     private javax.swing.JTree jt_Dulce;
+    private javax.swing.JTree jt_Empleados;
     private javax.swing.JTree jt_Limpieza;
     private javax.swing.JTree jt_Pelicula;
-    private javax.swing.JTree jt_cine1;
     private javax.swing.JPasswordField pf_loginPassword;
     private javax.swing.JPopupMenu pp_Boleto;
     private javax.swing.JPopupMenu pp_CRUD;
@@ -1314,16 +1515,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JRadioButton rb4;
     private javax.swing.JTextArea ta_Descripcion;
     private javax.swing.JTextField tf_clasificacionPelicula;
+    private javax.swing.JTextField tf_contraEmpleado;
+    private javax.swing.JTextField tf_correoEmpleado;
     private javax.swing.JTextField tf_duracionPelicula;
     private javax.swing.JTextField tf_emailR;
     private javax.swing.JTextField tf_loginUser;
     private javax.swing.JTextField tf_nombreArticulo;
     private javax.swing.JTextField tf_nombreDulce;
+    private javax.swing.JTextField tf_nombreEmpleado;
     private javax.swing.JTextField tf_nombrePelicula;
     private javax.swing.JTextField tf_nombreR;
     private javax.swing.JTextField tf_passwordR;
     private javax.swing.JTextField tf_saborDulce;
     private javax.swing.JTextField tf_userR;
+    private javax.swing.JTextField tf_usuarioEmpleado;
     // End of variables declaration//GEN-END:variables
 ArrayList<Empleado> lista_empleados = new ArrayList<>();
     ArrayList<EmpleadoDulceria> lista_dulceros = new ArrayList<>();
@@ -1336,6 +1541,7 @@ ArrayList<Empleado> lista_empleados = new ArrayList<>();
     Dulce dulce_seleccionado;
     Funcion funcion_seleccionado;
     Pelicula peli_seleccionado;
+    Empleado emp_sel;
     int row1, row2, row3;
     Object objeto1, objeto2, objeto3;
 }

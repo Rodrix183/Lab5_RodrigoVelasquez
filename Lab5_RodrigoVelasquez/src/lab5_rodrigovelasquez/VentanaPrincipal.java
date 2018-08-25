@@ -131,7 +131,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jt_Empleados);
 
-        jButton2.setText("jButton1");
+        jButton2.setText("--->");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         jLabel18.setText("Nombre");
 
@@ -186,7 +191,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                                 .addGap(45, 45, 45)
                                 .addComponent(jButton1))
                             .addComponent(jLabel4))))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         jd_SistemaLayout.setVerticalGroup(
             jd_SistemaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1395,6 +1400,37 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
         modeloArbol.reload();
     }//GEN-LAST:event_jmi_modificarPActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+       if (jl_Empleados.getSelectedIndex() >= 0) {
+            DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Empleados.getModel();
+            DefaultListModel modeloLista = (DefaultListModel) jl_Empleados.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+            String nombre = ((Empleado) modeloLista.get(jl_Empleados.getSelectedIndex())).getNombre();
+            Date fecha = ((Empleado) modeloLista.get(jl_Empleados.getSelectedIndex())).getFecha();
+            String usuario = ((Empleado) modeloLista.get(jl_Empleados.getSelectedIndex())).getUser();
+            String contra =((Empleado) modeloLista.get(jl_Empleados.getSelectedIndex())).getPassword();
+            String correo = ((Empleado) modeloLista.get(jl_Empleados.getSelectedIndex())).getEmail();
+            String puesto = ((Empleado) modeloLista.get(jl_Empleados.getSelectedIndex())).getPuesto();
+            int centinela = -1;
+            for (int i = 0; i < raiz.getChildCount(); i++) {
+                if (raiz.getChildAt(i).toString().equals(puesto)) {
+                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Empleado(nombre, fecha, puesto, puesto, usuario, puesto));
+                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+                    centinela = 1;
+                }
+            }
+
+            if (centinela == -1) {
+                DefaultMutableTreeNode n = new DefaultMutableTreeNode(puesto);
+                DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Empleado(nombre, fecha, puesto, puesto, usuario, puesto));
+                n.add(p);
+                raiz.add(n);
+
+            }
+            modeloArbol.reload();
+        }
+    }//GEN-LAST:event_jButton2MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

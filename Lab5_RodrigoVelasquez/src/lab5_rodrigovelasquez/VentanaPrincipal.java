@@ -560,6 +560,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pp_DULCE.add(jmi_modificarDulce);
 
         jmi_eliminarDulce.setText("Eliminar");
+        jmi_eliminarDulce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_eliminarDulceActionPerformed(evt);
+            }
+        });
         pp_DULCE.add(jmi_eliminarDulce);
 
         jmi_AddBoleto.setText("Agregar");
@@ -579,6 +584,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pp_Boleto.add(jmi_modificarPeli);
 
         jmi_eliminarPeli.setText("Eliminar");
+        jmi_eliminarPeli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_eliminarPeliActionPerformed(evt);
+            }
+        });
         pp_Boleto.add(jmi_eliminarPeli);
 
         jmi_AddArticulo.setText("Agregar");
@@ -598,6 +608,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pp_limpio.add(jmi_modificarArticulo);
 
         jmi_eliminarArticulo.setText("Eliminar");
+        jmi_eliminarArticulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_eliminarArticuloActionPerformed(evt);
+            }
+        });
         pp_limpio.add(jmi_eliminarArticulo);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1006,12 +1021,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         switch (op) {
             case 1:
                 String nombre = JOptionPane.showInputDialog("Nombre ");
-                dulce_seleccionado = ((Dulce)((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                dulce_seleccionado = ((Dulce) ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
                 dulce_seleccionado.setNombre(nombre);
                 break;
             case 2:
                 String sabor = JOptionPane.showInputDialog("Sabor ");
-                dulce_seleccionado = ((Dulce)((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                dulce_seleccionado = ((Dulce) ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
                 dulce_seleccionado.setSabor(sabor);
                 break;
             case 3:
@@ -1036,7 +1051,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     default:
                         JOptionPane.showMessageDialog(null, "No hay!");
                 }
-                dulce_seleccionado = ((Dulce)((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                dulce_seleccionado = ((Dulce) ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
                 dulce_seleccionado.setCategoria(categoria);
                 break;
         }
@@ -1058,17 +1073,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         switch (op) {
             case 1:
                 String nombre = JOptionPane.showInputDialog("Nombre ");
-                peli_seleccionado = ((Pelicula)((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                peli_seleccionado = ((Pelicula) ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
                 peli_seleccionado.setNombre(nombre);
                 break;
             case 2:
                 String duracion = JOptionPane.showInputDialog("Duracion ");
-                peli_seleccionado = ((Pelicula)((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                peli_seleccionado = ((Pelicula) ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
                 peli_seleccionado.setDuracion(duracion);
                 break;
             case 3:
                 String clasif = JOptionPane.showInputDialog("Clasificacion ");
-                peli_seleccionado = ((Pelicula)((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                peli_seleccionado = ((Pelicula) ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
                 peli_seleccionado.setClasificacion(clasif);
                 break;
             case 4:
@@ -1101,7 +1116,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     default:
                         JOptionPane.showMessageDialog(null, "No hay!");
                 }
-                peli_seleccionado = ((Pelicula)((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                peli_seleccionado = ((Pelicula) ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
                 peli_seleccionado.setCategoria(categoria);
                 break;
         }
@@ -1122,12 +1137,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             case 1:
                 String nombre = JOptionPane.showInputDialog("Nombre ");
                 //((Funcion) nodo_seleccionado.getChildAt(pos1).getChildAt(pos2)).setNombre(nombre);
-                funcion_seleccionado = ((Funcion)((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                funcion_seleccionado = ((Funcion) ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
                 funcion_seleccionado.setNombre(nombre);
                 break;
             case 2:
                 String Descripcion = JOptionPane.showInputDialog("Desripcion ");
-                funcion_seleccionado = ((Funcion)((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                funcion_seleccionado = ((Funcion) ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
                 funcion_seleccionado.setDescripcion(Descripcion);
                 break;
             case 3:
@@ -1140,21 +1155,57 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         categoria = "Limpieza de Pisos";
                         break;
                     case 2:
-                        categoria = "Limpiezade Vidrio";                      
+                        categoria = "Limpiezade Vidrio";
                         break;
                     case 3:
-                        categoria = "Limpiezade Mesas" ;
+                        categoria = "Limpiezade Mesas";
                         break;
                     default:
                         JOptionPane.showMessageDialog(null, "No hay!");
                 }
-                funcion_seleccionado = ((Funcion)((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+                funcion_seleccionado = ((Funcion) ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
                 funcion_seleccionado.setFuncion(categoria);
                 ((Dulce) nodo_seleccionado.getChildAt(pos1).getChildAt(pos2)).setNombre(categoria);
                 break;
         }
         modeloArbol.reload();
     }//GEN-LAST:event_jmi_modificarArticuloActionPerformed
+
+    private void jmi_eliminarDulceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarDulceActionPerformed
+        // eliminar dulce
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Dulce.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+        int pos1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese nodo de categoria "));
+        int pos2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese dulce"));
+
+        // dulce_seleccionado = ((Dulce) ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2)).getUserObject());
+        DefaultMutableTreeNode m = ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2));
+        m.removeFromParent();
+        modeloArbol.reload();
+    }//GEN-LAST:event_jmi_eliminarDulceActionPerformed
+
+    private void jmi_eliminarPeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarPeliActionPerformed
+        //eliminar peli
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Pelicula.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+        int pos1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese nodo de categoria "));
+        int pos2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese pelicula"));
+        DefaultMutableTreeNode m = ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2));
+        m.removeFromParent();
+        modeloArbol.reload();
+
+    }//GEN-LAST:event_jmi_eliminarPeliActionPerformed
+
+    private void jmi_eliminarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarArticuloActionPerformed
+        // eliminar articulo
+        DefaultTreeModel modeloArbol = (DefaultTreeModel) jt_Limpieza.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloArbol.getRoot();
+        int pos1 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese nodo de categoria "));
+        int pos2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese articulo de limpieza"));
+        DefaultMutableTreeNode m = ((DefaultMutableTreeNode) raiz.getChildAt(pos1).getChildAt(pos2));
+        m.removeFromParent();
+        modeloArbol.reload();
+    }//GEN-LAST:event_jmi_eliminarArticuloActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
